@@ -11,10 +11,12 @@ public class BroadcastScheduler {
     private int seconds;
     private boolean running;
     private int id;
+    private FileManager manager;
 
     public BroadcastScheduler(int seconds) {
         this.seconds = seconds;
         this.running = false;
+        this.manager = new FileManager();
     }
 
     public void start() {
@@ -32,9 +34,9 @@ public class BroadcastScheduler {
             @Override
             public void run() {
                 Random random = new Random();
-                int size = FileManager.getMessages().size();
+                int size = manager.getMessages().size();
                 int number = random.nextInt(((size - 1)) + 1);
-                Bukkit.broadcastMessage(FileManager.getMessages().get(number));
+                Bukkit.broadcastMessage(manager.getMessages().get(number));
             }
         }, 0L, (seconds * 20L));
     }

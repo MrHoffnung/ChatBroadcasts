@@ -9,24 +9,26 @@ import java.io.IOException;
 
 public class ChatBroadcasts extends JavaPlugin {
     private static ChatBroadcasts instance;
+    private FileManager manager;
 
     @Override
     public void onEnable() {
         instance = this;
+        manager = new FileManager();
         try {
-            FileManager.createFile();
+            manager.createFile();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
-        BroadcastScheduler task = new BroadcastScheduler(FileManager.getSeconds());
+        BroadcastScheduler task = new BroadcastScheduler(manager.getSeconds());
         task.start();
         getLogger().info("The scheduler has been started successfully!");
     }
 
     @Override
     public void onDisable() {
-        BroadcastScheduler task = new BroadcastScheduler(FileManager.getSeconds());
+        BroadcastScheduler task = new BroadcastScheduler(manager.getSeconds());
         task.cancel();
     }
 

@@ -11,17 +11,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FileManager {
-    private static File file;
-    private static FileConfiguration cfg;
-    private static List<String> messages;
+    private File file;
+    private FileConfiguration cfg;
+    private List<String> messages;
 
-    static {
-        file = new File(ChatBroadcasts.getInstance().getDataFolder(), "config.yml");
-        cfg = YamlConfiguration.loadConfiguration(file);
-        messages = Arrays.asList("§aThis is the first message!", "§bThis is the second message!");
+
+    public FileManager() {
+        this.file = new File(ChatBroadcasts.getInstance().getDataFolder(), "config.yml");
+        this.cfg = YamlConfiguration.loadConfiguration(file);
+        this.messages = Arrays.asList("§aThis is the first message!", "§bThis is the second message!");
     }
 
-    public static void createFile() throws IOException {
+    public void createFile() throws IOException {
         if (!ChatBroadcasts.getInstance().getDataFolder().mkdir()) ChatBroadcasts.getInstance().getDataFolder().createNewFile();
         if (!file.exists()) {
             file.createNewFile();
@@ -32,11 +33,11 @@ public class FileManager {
         }
     }
 
-    public static List<String> getMessages() {
+    public List<String> getMessages() {
         return cfg.getStringList("messages");
     }
 
-    public static Integer getSeconds() {
+    public Integer getSeconds() {
         return cfg.getInt("seconds");
     }
 }
