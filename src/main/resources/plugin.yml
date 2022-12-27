@@ -1,0 +1,5 @@
+name: ChatBroadcasts
+main: de.sqlcxde.chatbroadcasts.ChatBroadcasts
+version: 1.0.0
+author: SQLCxde
+description: A simple plugin to send repeating broadcasts

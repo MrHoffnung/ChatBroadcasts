@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ChatBroadcasts">
+    <output-path>$PROJECT_DIR$/out/artifacts/ChatBroadcasts</output-path>
+    <root id="archive" name="ChatBroadcasts.jar">
+      <element id="module-output" name="ChatBroadcasts" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/deinplugin.yaml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.yml" />
+    </root>
+  </artifact>
+</component>

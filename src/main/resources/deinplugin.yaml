@@ -1,0 +1,14 @@
+specVersion: 1
+type: plugin
+name: ChatBroadcasts
+authors:
+  - SQLCxde
+supportedGameVersions: ^1.19
+category: misc
+introduction: Das Plugin sendet wiederholte, zufällige Broadcasts
+description: |
+  # Überblick
+  Das Plugin sendet wiederholte, zufällige Broadcasts.
+  
+  # Config
+  Nachrichten und Zeitspanne können in der Config angepasst werden.
